@@ -73,11 +73,9 @@ class HomeTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
       
-        // Temp static cell size
-        // TODO: Fix to grow the size of cell
-        //tableView.dataSource = self
-        //tableView.delegate = self
-        //tableView.rowHeight = 150
+        // Make cells self sizing depending of tweet content size
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 150
 
         // Get and load tweets
         getTweets()

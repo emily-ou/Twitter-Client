@@ -16,20 +16,32 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="TwitterLogo" translatesAutoresizingMaskIntoConstraints="NO" id="5sC-R5-4NH">
-                                <rect key="frame" x="105" y="318" width="164" height="176"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="TwitterLogo" translatesAutoresizingMaskIntoConstraints="NO" id="5sC-R5-4NH">
+                                <rect key="frame" x="105.66666666666669" y="318" width="164" height="176"/>
                                 <color key="backgroundColor" red="0.17904728650000001" green="0.61888003349999998" blue="0.97623795270000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="176" id="RJX-s2-Mrx"/>
+                                    <constraint firstAttribute="width" constant="164" id="uTJ-P2-Pcd"/>
+                                </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tweeter" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y3m-VC-F79">
-                                <rect key="frame" x="132" y="448" width="111" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" misplaced="YES" text="Tweeter" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y3m-VC-F79">
+                                <rect key="frame" x="132" y="443.66666666666663" width="111" height="35"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="29"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="0.1137254902" green="0.62745098040000002" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Y3m-VC-F79" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="1Mn-4n-aRc"/>
+                            <constraint firstItem="5sC-R5-4NH" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="EgH-6X-U9L"/>
+                            <constraint firstItem="5sC-R5-4NH" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="ICz-wM-q9E"/>
+                            <constraint firstItem="5sC-R5-4NH" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="JPZ-Y0-Bko"/>
+                            <constraint firstItem="Y3m-VC-F79" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="K3u-S6-kIi"/>
+                            <constraint firstItem="Y3m-VC-F79" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="Qb7-rB-Yyc"/>
+                            <constraint firstItem="5sC-R5-4NH" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="hBR-4L-Cr3"/>
+                            <constraint firstItem="Y3m-VC-F79" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="rxg-BE-37E"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Bcu-3y-fUS"/>
                     </view>
                 </viewController>

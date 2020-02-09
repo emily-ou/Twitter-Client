@@ -23,11 +23,12 @@ class HomeTableViewController: UITableViewController {
         UserDefaults.standard.set(false, forKey: "LoggedIn")
     }
     
-    // Get and load tweets function
-    @objc func getTweets() {
+    // Get and load new tweets function
+    @objc func refreshTweets() {
         // Home timeline URL
+        numOfTweets = 50
         let homeURL = "https://api.twitter.com/1.1/statuses/home_timeline.json"
-        let params = ["count": 50]
+        let params = ["count": numOfTweets]
         
         // Get tweets
         TwitterAPICaller.client?.getDictionariesRequest(url: homeURL, parameters: params, success: { (tweets: [NSDictionary]) in
@@ -45,6 +46,36 @@ class HomeTableViewController: UITableViewController {
             print(Error.localizedDescription)
             //self.getTweets()
         })
+    }
+    
+    // Get and load old tweets function
+    func loadOldTweets() {
+        let homeURL = "https://api.twitter.com/1.1/statuses/home_timeline.json"
+        numOfTweets += 20
+        let params = ["count": numOfTweets]
+        
+        // Get tweets
+        TwitterAPICaller.client?.getDictionariesRequest(url: homeURL, parameters: params, success: { (tweets: [NSDictionary]) in
+            // Preserve order
+            self.tweetsArray.removeAll()
+            // Append tweets into array
+            for tweet in tweets {
+                self.tweetsArray.append(tweet)
+            }
+            // reload data to all cells
+            self.tableView.reloadData()
+            
+        }, failure: { (Error) in
+            print(Error.localizedDescription)
+            //self.getTweets()
+        })
+    }
+    
+    // function to load old tweets one the scroll its the bottom of the screen
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if indexPath.row + 1 == tweetsArray.count {
+            loadOldTweets()
+        }
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -104,10 +135,10 @@ class HomeTableViewController: UITableViewController {
         tableView.estimatedRowHeight = 150
 
         // Get and load tweets
-        getTweets()
+        refreshTweets()
         
         // refresh tweets
-        refresh_Control.addTarget(self, action: #selector(getTweets), for: .valueChanged)
+        refresh_Control.addTarget(self, action: #selector(refreshTweets), for: .valueChanged)
         tableView.refreshControl = refresh_Control
 
     }

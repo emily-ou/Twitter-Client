@@ -31,7 +31,7 @@ class HomeTableViewController: UITableViewController {
         let params = ["count": numOfTweets]
         
         // Get tweets
-        TwitterAPICaller.client?.getDictionariesRequest(url: homeURL, parameters: params, success: { (tweets: [NSDictionary]) in
+        TwitterAPICaller.client?.getDictionariesRequest(url: homeURL, parameters: params as [String : Any], success: { (tweets: [NSDictionary]) in
             // Preserve order
             self.tweetsArray.removeAll()
             // Append tweets into array
@@ -55,7 +55,7 @@ class HomeTableViewController: UITableViewController {
         let params = ["count": numOfTweets]
         
         // Get tweets
-        TwitterAPICaller.client?.getDictionariesRequest(url: homeURL, parameters: params, success: { (tweets: [NSDictionary]) in
+        TwitterAPICaller.client?.getDictionariesRequest(url: homeURL, parameters: params as [String : Any], success: { (tweets: [NSDictionary]) in
             // Preserve order
             self.tweetsArray.removeAll()
             // Append tweets into array
@@ -96,7 +96,12 @@ class HomeTableViewController: UITableViewController {
         // Convert URL to string
         let strURL = "\(imageURL)"
         // Get rid of _normal to end of string
-        let index = strURL.index(strURL.endIndex, offsetBy: -11)
+        var index: String.Index
+        if strURL.hasSuffix("jpeg") {
+            index = strURL.index(strURL.endIndex, offsetBy: -12)
+        } else {
+            index = strURL.index(strURL.endIndex, offsetBy: -11)
+        }
         // Get the string before index
         let substring1 = strURL[..<index]
         

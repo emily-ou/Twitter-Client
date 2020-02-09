@@ -60,12 +60,38 @@ class HomeTableViewController: UITableViewController {
         
         // Get profile pic
         let imageURL = URL(string: ((username["profile_image_url_https"] as? String)!))!
-        let data = try? Data(contentsOf: imageURL)
         
+        // Get a more pixelated profile pic
+        // Convert URL to string
+        let strURL = "\(imageURL)"
+        // Get rid of _normal to end of string
+        let index = strURL.index(strURL.endIndex, offsetBy: -11)
+        // Get the string before index
+        let substring1 = strURL[..<index]
+        
+        // add the file type back
+        var hdURL: String?
+        if strURL.hasSuffix("jpg") {
+            hdURL = substring1 + ".jpg"
+        } else if strURL.hasSuffix("jpeg") {
+            hdURL = substring1 + ".jpeg"
+        } else if strURL.hasSuffix("png") {
+            hdURL = substring1 + ".png"
+        }
+        // Updated URL with more pixelated profile pic
+        let imageURL2 = URL(string: hdURL!)
+        
+        // try-catch the image URL
+        let data = try? Data(contentsOf: imageURL2!)
         // Populate profile pic
         if let imageData = data {
             cell.profilePic.image = UIImage(data: imageData)
         }
+        
+        // Make the profile pic circular
+        cell.profilePic.layer.masksToBounds = false
+        cell.profilePic.layer.cornerRadius = cell.profilePic.frame.height / 2
+        cell.profilePic.clipsToBounds = true
         
         return cell
     }

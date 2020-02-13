@@ -145,9 +145,13 @@ class HomeTableViewController: UITableViewController {
         // refresh tweets
         refresh_Control.addTarget(self, action: #selector(refreshTweets), for: .valueChanged)
         tableView.refreshControl = refresh_Control
-
     }
-
+    
+//    override func viewDidAppear(_ animated: Bool) {
+//        super.viewDidAppear(animated)
+//        self.refreshTweets()
+//        print("Entered Here\n")
+//    }
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {

@@ -56,7 +56,7 @@
         <scene sceneID="VeK-YE-5i4">
             <objects>
                 <tableViewController id="q2D-0I-8BF" customClass="HomeTableViewController" customModule="Twitter" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="C6g-Bh-YsZ">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="119" sectionHeaderHeight="28" sectionFooterHeight="28" id="C6g-Bh-YsZ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -122,7 +122,7 @@
                         <barButtonItem key="rightBarButtonItem" image="edit-icon" id="RBq-tY-wFf">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
-                                <segue destination="zLR-WX-urw" kind="presentation" id="hgW-Aw-F7z"/>
+                                <segue destination="zLR-WX-urw" kind="presentation" modalPresentationStyle="fullScreen" id="hgW-Aw-F7z"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -137,11 +137,11 @@
             <objects>
                 <viewController id="ya5-Me-vAS" customClass="TweetViewController" customModule="Twitter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ImJ-aB-cNN">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="758"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Draft Tweet" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="EoH-tR-xK2">
-                                <rect key="frame" x="81" y="56" width="278" height="158"/>
+                                <rect key="frame" x="81" y="88" width="278" height="158"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="158" id="QD3-xC-rWd"/>
@@ -207,7 +207,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="zLR-WX-urw" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="bpA-NF-ybs">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.1137254902" green="0.62745098040000002" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>

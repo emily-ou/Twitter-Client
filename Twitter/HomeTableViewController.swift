@@ -147,11 +147,11 @@ class HomeTableViewController: UITableViewController {
         tableView.refreshControl = refresh_Control
     }
     
-//    override func viewDidAppear(_ animated: Bool) {
-//        super.viewDidAppear(animated)
-//        self.refreshTweets()
-//        print("Entered Here\n")
-//    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.refreshTweets()
+        print("Entered Here\n")
+    }
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {

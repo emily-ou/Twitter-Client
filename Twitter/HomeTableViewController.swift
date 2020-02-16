@@ -13,7 +13,7 @@ class HomeTableViewController: UITableViewController {
     var tweetsArray = [NSDictionary]()
     var numOfTweets: Int!
     let refresh_Control = UIRefreshControl()
-
+    
     @IBAction func logoutButton(_ sender: Any) {
         // Logout when button is click
         TwitterAPICaller.client?.logout()
@@ -78,6 +78,7 @@ class HomeTableViewController: UITableViewController {
         }
     }
     
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TweetCell", for: indexPath) as! TweetCell
         
@@ -87,7 +88,6 @@ class HomeTableViewController: UITableViewController {
         // Populate the labels in the cell
         cell.usernameLabel.text = username["name"] as? String
         cell.contentLabel.text = tweetsArray[indexPath.row]["text"] as? String
-        //cell.contentLabel.sizeToFit()
         
         // Get profile pic
         let imageURL = URL(string: ((username["profile_image_url_https"] as? String)!))!
@@ -128,6 +128,11 @@ class HomeTableViewController: UITableViewController {
         cell.profilePic.layer.masksToBounds = false
         cell.profilePic.layer.cornerRadius = cell.profilePic.frame.height / 2
         cell.profilePic.clipsToBounds = true
+        
+        // Populate the cells with my liked tweets
+        cell.setLike(tweetsArray[indexPath.row]["favorited"] as! Bool)
+        // Get tweet id
+        cell.tweetId = tweetsArray[indexPath.row]["id"] as! Int
         
         return cell
     }

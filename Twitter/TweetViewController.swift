@@ -8,8 +8,8 @@
 
 import UIKit
 
-class TweetViewController: UIViewController {
-
+class TweetViewController: UIViewController, UITextViewDelegate {
+    
     @IBOutlet weak var tweetTextView: UITextView!
     
     @IBAction func cancelButton(_ sender: Any) {
@@ -33,10 +33,13 @@ class TweetViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Prep draft tweet screen
-        tweetTextView.becomeFirstResponder()
+        tweetTextView.delegate = self
     }
     
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        // Clears on editing
+        tweetTextView.text = ""
+    }
 
     /*
     // MARK: - Navigation

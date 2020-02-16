@@ -13,6 +13,9 @@ class TweetViewController: UIViewController, UITextViewDelegate {
     @IBOutlet weak var tweetTextView: UITextView!
     @IBOutlet weak var charCount: UILabel!
     @IBOutlet weak var tweetButton2: UIBarButtonItem!
+    @IBOutlet weak var profilePic2: UIImageView!
+    
+    var tweetArray: [String:Any]!
     
     @IBAction func cancelButton(_ sender: Any) {
         // Cancels the draft and dismiss screen
@@ -46,6 +49,21 @@ class TweetViewController: UIViewController, UITextViewDelegate {
         
         // Character limit
         charCount.text = "280"
+        
+        // Hard coded image
+        let imageURL2 = URL(string: "https://pbs.twimg.com/profile_images/1229122893986045952/luwc5sHM.jpg")
+        
+        // try-catch the image URL
+        let data = try? Data(contentsOf: imageURL2!)
+        // Populate profile pic
+        if let imageData = data {
+            profilePic2.image = UIImage(data: imageData)
+        }
+        
+        // Make the profile pic circular
+        profilePic2.layer.masksToBounds = false
+        profilePic2.layer.cornerRadius = profilePic2.frame.height / 2
+        profilePic2.clipsToBounds = true
     }
     
     // Clears on editing

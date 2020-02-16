@@ -205,12 +205,22 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1pp-II-B7E">
+                                <rect key="frame" x="16" y="96" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="XCb-0i-ubk"/>
+                                    <constraint firstAttribute="height" constant="50" id="vfd-Kv-AHK"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="EoH-tR-xK2" firstAttribute="leading" secondItem="Uos-EU-ffX" secondAttribute="leading" constant="81" id="70J-y8-49B"/>
                             <constraint firstItem="EoH-tR-xK2" firstAttribute="top" secondItem="Uos-EU-ffX" secondAttribute="top" constant="8" id="PLW-US-fcV"/>
+                            <constraint firstItem="1pp-II-B7E" firstAttribute="top" secondItem="Uos-EU-ffX" secondAttribute="top" constant="8" id="Te8-hm-0QG"/>
                             <constraint firstItem="xGe-7z-WZu" firstAttribute="top" secondItem="EoH-tR-xK2" secondAttribute="bottom" constant="8" id="YqT-cp-kWj"/>
+                            <constraint firstItem="1pp-II-B7E" firstAttribute="leading" secondItem="Uos-EU-ffX" secondAttribute="leading" constant="16" id="ext-mR-VPQ"/>
+                            <constraint firstItem="EoH-tR-xK2" firstAttribute="leading" secondItem="1pp-II-B7E" secondAttribute="trailing" constant="15" id="p1l-i2-DOT"/>
                             <constraint firstItem="Uos-EU-ffX" firstAttribute="trailing" secondItem="xGe-7z-WZu" secondAttribute="trailing" constant="16" id="rDQ-ig-dka"/>
                             <constraint firstItem="Uos-EU-ffX" firstAttribute="trailing" secondItem="EoH-tR-xK2" secondAttribute="trailing" constant="16" id="zgE-yz-EYh"/>
                         </constraints>
@@ -232,6 +242,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="charCount" destination="xGe-7z-WZu" id="fer-3O-ktR"/>
+                        <outlet property="profilePic2" destination="1pp-II-B7E" id="GAL-g5-cII"/>
                         <outlet property="tweetButton2" destination="thy-e8-K9b" id="X4x-Y5-pyS"/>
                         <outlet property="tweetTextView" destination="EoH-tR-xK2" id="QRn-Wc-grM"/>
                     </connections>

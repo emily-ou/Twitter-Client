@@ -19,9 +19,10 @@ class TweetCell: UITableViewCell {
     
     var liked:Bool = false
     var tweetId:Int = -1
+    var retweeted:Bool = false
     
+    // like button is triggered
     @IBAction func likeTweet(_ sender: Any) {
-        // like button is triggered
         let toBeLiked = !liked
         
         if toBeLiked {
@@ -39,7 +40,23 @@ class TweetCell: UITableViewCell {
         }
     }
     
+    // retweet button is triggered
     @IBAction func retweetTweet(_ sender: Any) {
+        let toBeRetweeted = !retweeted
+        
+        if toBeRetweeted {
+            TwitterAPICaller.client?.retweetTweet(tweetId: tweetId, success: {
+                self.setRetweeted(true)
+            }, failure: { (Error) in
+                print("Retweet Error: \(Error.localizedDescription)")
+            })
+        } else {
+            TwitterAPICaller.client?.undoRetweetTweet(tweetId: tweetId, success: {
+                self.setRetweeted(false)
+            }, failure: { (Error) in
+                print("Undo Retweet Error: \(Error.localizedDescription)")
+            })
+        }
     }
     
     // Set images for if when the tweet is liked
@@ -49,6 +66,18 @@ class TweetCell: UITableViewCell {
             likeButton.setImage(UIImage(named: "favor-icon-red"), for: UIControl.State.normal)
         } else {
             likeButton.setImage(UIImage(named: "favor-icon"), for: UIControl.State.normal)
+        }
+    }
+    
+    // Set images for if when the tweet is retweeted
+    func setRetweeted(_ isRetweeted: Bool) {
+        retweeted = isRetweeted
+        if isRetweeted {
+            retweetButton.setImage(UIImage(named: "retweet-icon-green"), for: UIControl.State.normal)
+            //retweetButton.isEnabled = false
+        } else {
+            retweetButton.setImage(UIImage(named: "retweet-icon"), for: UIControl.State.normal)
+            //retweetButton.isEnabled = true
         }
     }
     

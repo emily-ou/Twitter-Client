@@ -43,8 +43,7 @@ class HomeTableViewController: UITableViewController {
             self.refresh_Control.endRefreshing()
             
         }, failure: { (Error) in
-            print(Error.localizedDescription)
-            //self.getTweets()
+            print("Refresh Tweets Error: \(Error.localizedDescription)")
         })
     }
     
@@ -66,8 +65,7 @@ class HomeTableViewController: UITableViewController {
             self.tableView.reloadData()
             
         }, failure: { (Error) in
-            print(Error.localizedDescription)
-            //self.getTweets()
+            print("Load Old Tweets Error: \(Error.localizedDescription)")
         })
     }
     
@@ -133,6 +131,8 @@ class HomeTableViewController: UITableViewController {
         cell.setLike(tweetsArray[indexPath.row]["favorited"] as! Bool)
         // Get tweet id
         cell.tweetId = tweetsArray[indexPath.row]["id"] as! Int
+        // Populate with my retweeted tweets
+        cell.setRetweeted(tweetsArray[indexPath.row]["retweeted"] as! Bool)
         
         return cell
     }

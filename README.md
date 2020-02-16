@@ -28,11 +28,11 @@ Here's a walkthrough of implemented user stories:
 
 <img src='http://g.recordit.co/gVSaSPOS5s.gif' width='250' alt='Video Walkthrough' />
 
-Time spent: **5** hours spent in total
-
 ## Part I
 
 ### User Stories
+
+Time spent: **5** hours spent in total
 
 The following **required** functionality is completed:
 

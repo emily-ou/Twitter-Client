@@ -34,6 +34,13 @@ class TweetViewController: UIViewController, UITextViewDelegate {
         super.viewDidLoad()
 
         tweetTextView.delegate = self
+        
+        // Border around text view
+        tweetTextView.layer.borderWidth = 1
+        tweetTextView.layer.borderColor = UIColor.black.cgColor
+        // Rounded corners
+        tweetTextView.clipsToBounds = true
+        tweetTextView.layer.cornerRadius = 10.0
     }
     
     func textViewDidBeginEditing(_ textView: UITextView) {

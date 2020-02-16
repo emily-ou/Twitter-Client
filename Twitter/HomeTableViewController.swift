@@ -26,7 +26,7 @@ class HomeTableViewController: UITableViewController {
     // Get and load new tweets function
     @objc func refreshTweets() {
         // Home timeline URL
-        numOfTweets = 50
+        numOfTweets = 20
         let homeURL = "https://api.twitter.com/1.1/statuses/home_timeline.json"
         let params = ["count": numOfTweets]
         
@@ -50,7 +50,7 @@ class HomeTableViewController: UITableViewController {
     // Get and load old tweets function
     func loadOldTweets() {
         let homeURL = "https://api.twitter.com/1.1/statuses/home_timeline.json"
-        numOfTweets += 20
+        numOfTweets += 10
         let params = ["count": numOfTweets]
         
         // Get tweets

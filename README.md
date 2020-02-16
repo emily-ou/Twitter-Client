@@ -2,7 +2,7 @@
 
 **Twitter** is a basic twitter app to read your tweets.
 
-## Twitter - Part II
+## Part II
 
 This is a basic twitter app to view, compose, favorite, and retweet tweets.
 
@@ -30,7 +30,7 @@ Here's a walkthrough of implemented user stories:
 
 Time spent: **5** hours spent in total
 
-## Part 1
+## Part I
 
 ### User Stories
 

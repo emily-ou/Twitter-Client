@@ -195,11 +195,23 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="charCount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xGe-7z-WZu">
+                                <rect key="frame" x="317" y="262" width="42" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="42" id="Pi3-6A-k5R"/>
+                                    <constraint firstAttribute="height" constant="21" id="ecf-VV-pAe"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="EoH-tR-xK2" firstAttribute="leading" secondItem="Uos-EU-ffX" secondAttribute="leading" constant="81" id="70J-y8-49B"/>
                             <constraint firstItem="EoH-tR-xK2" firstAttribute="top" secondItem="Uos-EU-ffX" secondAttribute="top" constant="8" id="PLW-US-fcV"/>
+                            <constraint firstItem="xGe-7z-WZu" firstAttribute="top" secondItem="EoH-tR-xK2" secondAttribute="bottom" constant="8" id="YqT-cp-kWj"/>
+                            <constraint firstItem="Uos-EU-ffX" firstAttribute="trailing" secondItem="xGe-7z-WZu" secondAttribute="trailing" constant="16" id="rDQ-ig-dka"/>
                             <constraint firstItem="Uos-EU-ffX" firstAttribute="trailing" secondItem="EoH-tR-xK2" secondAttribute="trailing" constant="16" id="zgE-yz-EYh"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Uos-EU-ffX"/>
@@ -219,6 +231,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="charCount" destination="xGe-7z-WZu" id="fer-3O-ktR"/>
+                        <outlet property="tweetButton2" destination="thy-e8-K9b" id="X4x-Y5-pyS"/>
                         <outlet property="tweetTextView" destination="EoH-tR-xK2" id="QRn-Wc-grM"/>
                     </connections>
                 </viewController>

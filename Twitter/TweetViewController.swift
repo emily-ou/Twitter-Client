@@ -11,6 +11,8 @@ import UIKit
 class TweetViewController: UIViewController, UITextViewDelegate {
     
     @IBOutlet weak var tweetTextView: UITextView!
+    @IBOutlet weak var charCount: UILabel!
+    @IBOutlet weak var tweetButton2: UIBarButtonItem!
     
     @IBAction func cancelButton(_ sender: Any) {
         // Cancels the draft and dismiss screen
@@ -41,13 +43,41 @@ class TweetViewController: UIViewController, UITextViewDelegate {
         // Rounded corners
         tweetTextView.clipsToBounds = true
         tweetTextView.layer.cornerRadius = 10.0
+        
+        // Character limit
+        charCount.text = "280"
     }
     
+    // Clears on editing
     func textViewDidBeginEditing(_ textView: UITextView) {
-        // Clears on editing
         tweetTextView.text = ""
     }
 
+    // Character count
+    func getCharacterCountRemaining() {
+        let charLimit = 280
+        let charsCount = tweetTextView.text.count
+        let charLeft = charLimit - charsCount
+        
+        if charLeft <= 10 {
+            tweetTextView.textColor = UIColor.red
+        } else {
+            tweetTextView.textColor = UIColor.black
+        }
+        
+        if charLeft < 0 {
+            tweetButton2.isEnabled = false
+        } else {
+             tweetButton2.isEnabled = true
+        }
+        
+        charCount.text = String(charLeft)
+    }
+    
+    func textViewDidChange(_ textView: UITextView) {
+        getCharacterCountRemaining()
+    }
+    
     /*
     // MARK: - Navigation
 
